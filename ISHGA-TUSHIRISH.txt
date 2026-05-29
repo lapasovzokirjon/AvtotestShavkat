@@ -1,0 +1,80 @@
+========================================================
+   AVTOTEST SHAVKAT — SAYTNI ISHGA TUSHIRISH (oddiy til)
+========================================================
+
+Sayt to'liq tayyor. Telegram bot, Meta Pixel va CAPI ulanishi yozilgan.
+Sizga faqat 3 ta ish qoladi:
+
+
+╔══════════════════════════════════════════════════╗
+║  1-QADAM: Node.js o'rnatish (faqat 1 marta)       ║
+╚══════════════════════════════════════════════════╝
+
+- https://nodejs.org saytiga kiring
+- "LTS" tugmasini bosib yuklab oling va o'rnating (Next, Next, Finish)
+- Bu kompyuterga 1 marta o'rnatiladi, qayta kerak emas
+
+
+╔══════════════════════════════════════════════════╗
+║  2-QADAM: Tokenlarni yozish (.env.local fayli)    ║
+╚══════════════════════════════════════════════════╝
+
+Loyiha papkasida ".env.local" degan fayl bor.
+Uni "Notepad" (Bloknot) bilan oching va qiymatlarni yozing:
+
+  TELEGRAM_BOT_TOKEN=bu yerga bot tokeningizni yozing
+  TELEGRAM_CHAT_ID=bu yerga chat id raqamini yozing
+  NEXT_PUBLIC_META_PIXEL_ID=bu yerga pixel id yozing
+  META_ACCESS_TOKEN=bu yerga CAPI tokenini yozing
+  META_TEST_EVENT_CODE=(bo'sh qoldirsangiz ham bo'ladi)
+
+MUHIM: = belgisidan keyin probel (bo'sh joy) qoldirmang!
+To'g'ri:  TELEGRAM_BOT_TOKEN=12345:ABCdef
+Noto'g'ri: TELEGRAM_BOT_TOKEN = 12345:ABCdef   (probel bor - xato)
+
+--- Tokenlarni qayerdan olaman? ---
+
+TELEGRAM_BOT_TOKEN:
+  Telegramda @BotFather ni toping -> /newbot -> nom bering
+  -> sizga token beradi (12345:ABC... ko'rinishida)
+
+TELEGRAM_CHAT_ID:
+  1) Yangi botingizga Telegramda biror xabar yozing ("salom")
+  2) Brauzerda oching (TOKEN o'rniga o'z tokeningizni qo'ying):
+     https://api.telegram.org/botTOKEN/getUpdates
+  3) Chiqgan matnda "chat":{"id": ...} raqamini oling
+
+NEXT_PUBLIC_META_PIXEL_ID va META_ACCESS_TOKEN:
+  Facebook Events Manager -> Pixel ID va
+  Settings -> Conversions API -> Generate Access Token
+
+
+╔══════════════════════════════════════════════════╗
+║  3-QADAM: Saytni ishga tushirish                  ║
+╚══════════════════════════════════════════════════╝
+
+- Loyiha papkasini oching
+- Papkaning bo'sh joyiga "Shift + sichqonchaning o'ng tugmasi"
+  -> "Open PowerShell window here" (yoki Terminal) ni tanlang
+- Quyidagilarni birma-bir yozing (har biridan keyin Enter):
+
+  npm install
+  npm run dev
+
+- Tayyor! Brauzerda oching:  http://localhost:3000
+
+
+╔══════════════════════════════════════════════════╗
+║  INTERNETGA QO'YISH (bepul - Vercel)              ║
+╚══════════════════════════════════════════════════╝
+
+- vercel.com da ro'yxatdan o'ting
+- Loyihani yuklang
+- Settings -> Environment Variables ga .env.local dagi
+  HAMMA qatorlarni qo'shing
+- Deploy bosing
+
+========================================================
+Muammo bo'lsa - tokenlar to'g'ri yozilganini va
+= dan keyin probel yo'qligini tekshiring.
+========================================================
